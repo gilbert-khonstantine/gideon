@@ -24,10 +24,7 @@ def welcome():
     if form.accepts(request, session):
         response.flash = 'Please wait for 1-2 minutes while we process your request.'
         session.url = request.vars['URL']
-        print(request.vars['URL'])
         del request.vars['URL']
-        print('------------------------')
-        print(request.vars)
         redirect(URL('result'))
     elif form.errors:
         response.flash = 'form has errors'
