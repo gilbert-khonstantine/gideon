@@ -280,7 +280,7 @@ def fake_news_detect(url,fake_news = fake_news, news = news):
   query = crawler(url)['head']
 
   search_result = [url]
-  for j in search(query, tld="com", stop=10, pause=3):
+  for j in search(query, tld="com", stop=15, pause=3):
       search_result = search_result+[j]
 
   if query == '[no-title]':
