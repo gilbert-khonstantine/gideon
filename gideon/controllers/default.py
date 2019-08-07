@@ -20,17 +20,21 @@ def welcome():
     form=FORM('URL to be checked:',
               INPUT(_name='URL', requires=IS_NOT_EMPTY()),
               INPUT(_type='submit'))
-    if form.accepts(request, session):
-        response.flash = 'form accepted'
-        session.url = request.vars['URL']
-        redirect(URL('result'))
-        
 
+    if form.accepts(request, session):
+        response.flash = 'Please wait for 1-2 minutes while we process your request.'
+        session.url = request.vars['URL']
+        print(request.vars['URL'])
+        del request.vars['URL']
+        print('------------------------')
+        print(request.vars)
+        redirect(URL('result'))
     elif form.errors:
         response.flash = 'form has errors'
     else:
         response.flash = 'please fill the form'
-    return dict(form=form) 
+    return dict(form = form) 
+
 def result():
     news = crawler(session.url)
     temp = fake_news_detect(session.url)
@@ -39,8 +43,11 @@ def result():
     if temp[0]==0:
         conc = 'Possibly Fake News'
     else: conc = 'Possibly Not Fake News'
+    form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"))
+    if form_1.accepts(request, session):
+        redirect(URL('welcome'))
+    return dict(news = news,conc=conc,score = score,corr_news=corr_news,form=form)
 
-    return dict(news = news,conc=conc,score = score,corr_news=corr_news)
 def index():
     response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
