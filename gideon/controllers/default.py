@@ -43,7 +43,7 @@ def result():
     form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"))
     if form_1.accepts(request, session):
         redirect(URL('welcome'))
-    return dict(news = news,conc=conc,score = score,corr_news=corr_news,form=form)
+    return dict(news = news,conc=conc,score = score,corr_news=corr_news,form=form_1)
 
 def index():
     response.flash = T("Hello World")
