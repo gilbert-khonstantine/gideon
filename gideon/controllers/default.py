@@ -20,11 +20,9 @@ def welcome():
     form=FORM('URL to be checked:',
               INPUT(_name='URL', requires=IS_NOT_EMPTY()),
               INPUT(_type='submit'))
-
     if form.accepts(request, session):
         response.flash = 'Please wait for 1-2 minutes while we process your request.'
         session.url = request.vars['URL']
-        del request.vars['URL']
         redirect(URL('result'))
     elif form.errors:
         response.flash = 'form has errors'
@@ -40,9 +38,7 @@ def result():
     if temp[0]==0:
         conc = 'Possibly Fake News'
     else: conc = 'Possibly Not Fake News'
-    form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"))
-    if form_1.accepts(request, session):
-        redirect(URL('welcome'))
+    form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"), _action=URL('welcome'))
     return dict(news = news,conc=conc,score = score,corr_news=corr_news,form=form_1)
 
 def index():
