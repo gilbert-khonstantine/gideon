@@ -291,8 +291,6 @@ def fake_news_detect(url,fake_news = fake_news, news = news):
 
   res_header = []
   res_body = []
-  # for i in tqdm(search_result):
-  #     res.append(crawler(i)[0])
   for i in tqdm(search_result):
       res_header.append(crawler(i)['head'])
       res_body.append(crawler(i)['post_body'])
@@ -302,11 +300,8 @@ def fake_news_detect(url,fake_news = fake_news, news = news):
   
   messages = res_header
   corr = cosine_sim(messages)
-  #suggestion: >0.7 consider as correlated
-  #remember to include NER and Sentiment
   search_result = np.array(search_result)
   #find out the list of url that is correlated
-  # cor_news = search_result[corr[0]>0.4]
   cor_news = search_result[corr[0]>0.4]
   cor_news_domain = []
   for i in cor_news:
