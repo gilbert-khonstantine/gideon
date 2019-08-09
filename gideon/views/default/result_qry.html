@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+<h5><b>QUERY SEARCHED:</b></h5>
+<br/> Query:
+<br/> {{=session.query}}
+<br/>
+<br/><b>EVALUATION:</b>
+<br/>
+<br/>Related News: {{=set(corr_news)}}
+<br/>Score: {{=score}}
+<br/>Conclusion: {{=conc}}
+<br/><br/> Click Here to Return to the Front Page: {{=form}}
