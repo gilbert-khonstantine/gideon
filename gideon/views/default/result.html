@@ -1,15 +1,27 @@
 {{extend 'layout.html'}}
 <h5><b>NEWS SEARCHED:</b></h5>
-<br/> URL:
+<br/> <b>URL:</b>
 <br/> {{=session.url}}
-<br/> Header:
+<br/> <b>Header:</b>
 <br/> {{=news['head']}}
-<br/> Body:
+<br/> <b>Body:</b>
 <br/> {{=news['body']}}
 <br/>
-<br/><b>EVALUATION:</b>
+<br/><b>Word Cloud Visualization:</b> 
+<style>
+div.center {
+	text-align: center;
+}
+</style>
+<div class = "center">
+<img src="{{=URL('static','images/wordcloud_img.png')}}"/>
+</div>
 <br/>
-<br/>Related News: {{=corr_news}}
-<br/>Score: {{=score}}
-<br/>Conclusion: {{=conc}}
+<br/><b>EVALUATION:</b>
+<br/><b>Related News:</b>
+    {{for i in range(len(corr_news)):}}
+        <a href={{=corr_news[i]}}><br/>{{=corr_news[i]}}</a>
+    {{pass}}
+<br/><b>Score:</b> {{=score}}
+<br/><b>Conclusion:</b> {{=conc}}
 <br/><br/> Click Here to Return to the Front Page: {{=form}}
