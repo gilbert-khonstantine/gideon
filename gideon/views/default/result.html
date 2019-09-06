@@ -1,0 +1,97 @@
+{{extend 'index.html'}}
+
+<br></br>
+<div class="heading-news-search"> NEWS SEARCHED </div>
+
+ <div class="box-notesite">
+                        <li class="circle-note-progress style-mobile" data-note="7.40">
+                            <div class="tooltip">
+                                <div class="box-circle">
+                                    <a class="item-link"></a>
+                                     <br><br><br></br></br></br>
+                                     <div class="circle" style="
+                                     width: 180px;
+                                     height: 180px;
+                                     border-radius: 80%;
+                                     border:solid #00FCA3 5px;
+                                     font-size: 40px;
+                                     color: rgb(255, 255, 255);
+                                     line-height: 180px;
+                                     text-align: center;
+                                     background: transparent;vertical-align: middle;align-content: center;bottom: 50%;">
+                                      <div class="legend">
+                                      {{=score}}    
+                                     </div>  
+                                  </div>
+                                   
+                                    <div class="legend">Result</div>
+                                </div><br></br>
+                                <div class="box-tooltip">
+                                    <div class="tooltip-text" data-color="green-2">{{=conc}}</div>
+                                </div>
+                            </div>
+                        </li>
+                       </ul>
+                </div>  
+
+<br><br></br></br>
+<div class="content-result">
+  <div class="box-result">
+    <div class="URL">
+       <strong class="bt-default green-fill">
+       <div style="left:50%" class="Result-content"><b><h3>URL</h3></b> 
+        <a href = {{=session.url}}>{{=session.url}}</a></div>
+       </strong> </div>
+    <br>
+    <div class="URL">
+       <strong class="bt-default green-fill">
+       <div style="left:50%" class="Result-content"><b><h3>TITLE</h3></b>
+        {{=news['head']}}</div>
+       </strong> </div>
+    <br>
+    <div class="URL">
+       <strong class="bt-default green-fill">
+       <div style="left:50%" class="Result-content"><b><h3>NEWS CONTENT</h3></b>
+        {{=news['body']}}</div>
+       </strong> </div>
+    <br>
+
+  
+    <div class="URL">
+       <strong class="bt-default green-fill">
+       <div style="left:50%" class="Result-content"><b><h3>WORD CLOUD VISUALIZATION</h3></b>
+        <style>
+            div.center {
+                text-align: center;
+                align-content: center;
+                align-items: center;
+            }
+            </style>
+              <div class = "center">
+              {{if ctr == 0:}}<img style="align-items:center;" src="{{=URL('static','images/wordcloud_img.png')}}"/>
+              {{elif ctr == 1:}}{{=err_wc}}
+              {{pass}}
+              </div>
+            <br/></div>
+       </strong> </div>
+
+<br>
+       <div class="URL">
+          <strong class="bt-default green-fill">
+          <div style="left:50%" class="Result-content">
+       <b>Related News:</b><br/>
+       {{if len(corr_news) == 0:}}
+            No Related News Found
+       {{else:}}
+        {{for i in range(len(corr_news)):}}
+            <a href={{=corr_news[i]}}>{{=corr_news[i]}}</a><br/>
+        {{pass}}
+      {{pass}}
+   <br/><br/>
+   </div>
+   </strong>
+   </div>
+  </br><br>
+  <form action="{{=URL('welcome')}}">
+      <input style="left:41%;" class="bt-default green-fill" type="submit" font-family='Heebo' value="Return to Main Page" style="font-family:Heebo;font-size:17px">
+</form>
