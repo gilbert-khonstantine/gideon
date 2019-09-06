@@ -17,48 +17,48 @@ import time
 import bleach
 # ---- example index page ----
 def welcome():
-    form=FORM('URL to be checked: ',INPUT(_name='URL'),
-              DIV('Query to be checked: ',INPUT(_name='query')),
-              INPUT(_type='submit'))
-    if form.accepts(request, session):
-        if request.vars['URL'] and request.vars['query'] :
-            response.flash = 'please fill only one row'
-        if request.vars['URL'] and not request.vars['query']:
-            session.url = request.vars['URL']
-            redirect(URL('result'))
-        if request.vars['query'] and not request.vars['URL']:
-            session.query = request.vars['query']
-            redirect(URL('result_qry'))
-        if not request.vars['URL'] and not request.vars['query'] :
-            response.flash = 'please fill the form'
-    return dict(form = form) 
+    print(request.vars)
+    if request.vars['URL'] and request.vars['query']:
+        response.flash = 'please fill only one row'
+    if request.vars['URL'] and not request.vars['query']:
+        session.url = request.vars['URL']
+        redirect(URL('result'))
+    if request.vars['query'] and not request.vars['URL']:
+        session.query = request.vars['query']
+        redirect(URL('result_qry'))
+    if not request.vars['URL'] and not request.vars['query']:
+        response.flash = 'please fill the form'
+    
+    return dict() 
 
 def result():
     news = crawler(session.url)
     temp = fake_news_detect(session.url)
-    wordcloud_generator(news['body'])
+    ctr = 0
+    try:
+        wordcloud_generator(news['body'])
+        err_wc = ''
+    except:
+        ctr = 1
+        err_wc='Word Cloud Can Not be Visualized'
     score = temp[1]
     corr_news = temp[2]
     if temp[0]==0:
         conc = 'Possibly Fake News'
     else: conc = 'Possibly Not Fake News'
-    form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"), _action=URL('welcome'))
-    return dict(news = news,conc=conc,score = score,corr_news=list(set(corr_news)),form=form_1)
+    corr_news=list(set(corr_news))
+    return dict(news = news,conc=conc,score = score,corr_news=corr_news,err_wc=err_wc,ctr=ctr)
 
 def result_qry():
+    news = session.query
     temp = fake_news_detector_keyword(session.query)
-    print(temp)
     score = temp[1]
     corr_news = temp[2]
     if temp[0]==0:
         conc = 'Possibly Fake News'
     else: conc = 'Possibly Not Fake News'
-    form_1 = FORM(INPUT(_type='submit',_value="Return to Main Page"), _action=URL('welcome'))
-    return dict(news = news,conc=conc,score = score,corr_news=list(set(corr_news)),form=form_1)
-
-def index():
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    corr_news=list(set(corr_news))
+    return dict(news = news,conc=conc,score = score,corr_news=corr_news)
 
 # ---- API (example) -----
 @auth.requires_login()
