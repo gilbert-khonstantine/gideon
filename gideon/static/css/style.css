@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700&display=swap" rel="stylesheet');
+
+* {
+  box-sizing:border-box;
+  margin: 0 0 0 0 
+}
+
+.inner.vertical-center{position:relative}
+.home{position:relative}
+img{position:relative}
+li{list-style:none}
+.grid{font-family:'Heebo';display:block;clear:both}
+.grid{font-family:'Heebo'; clear:both;margin-left:-35px}
+.grid .list-items [class*=col-]{display:flex}.grid [class*=col-],/*<< to make the news box 1 line*/
+.grid [class*=cols-]{position:relative;float:left;padding-left:35px;padding-top:10px;padding-bottom:30px;box-sizing:border-box; }
+
+.grid .col-3{width:33.333%}
+.one-row [class=col-3]{padding-bottom:0}
+
+
+@media (max-width: 1024px){.grid .cols-3{width:50% !important},.home{width:50% !important}}
+@media screen and (max-width: 1461px){.grid .list-items .col-3, body.home .box-heading .col-3{width:33.3333333%}}
+@media screen and (max-width: 375px){.grid .list-items .col-3,body.home .box-heading .col-3,.box-info{width:100%}}
+
+div.stickybot{
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: yellow;
+  padding-top:0;padding-left: 5%;
+  bottom:0;
+  height:5%;
+  font-size: 20px;z-index:1000;}
+
+
+textarea {resize: none;}
+.legend {font-family:'Heebo'}
+.row{font-family:'Heebo'}
+h1{left: 15%}
+
+/*box news layout*/
+.p{margin-bottom:25px;line-height:100%}img{max-width:100%;height:auto}
+
+/*atas*/
+.heading-large{font-size:50px;font-weight:800;font-family:'Heebo'}
+.vertical-center{position:relative;display:flex;padding-top:100;min-height:100%}
+.horizontal-center{text-align:center}
+
+/*2 box back to menu*/
+.bt-default{box-align:center;display:inline-block;height:auto;padding:0px 10px;border:1.3px solid;border-radius:30px;line-height:34px;font-size:20px;font-weight:500;font-family:'Heebo';text-align:center;cursor:context-menu;transition:all 0.4s ease-in-out;}
+.bt-default.green-fill{border-color:#49c5b6;color:#fff;background-color:#49c5b6;font-weight:500;display:flex;position:relative;align-self:center;text-align:center;align-content: center;}
+.bt-default.green-fill:hover{background-color:transparent}
+
+/*ini buat select or klik link */
+.list-items h3{margin:0;font-family:'Heebo';font-size:20px;font-weight:500;line-height:25px}
+.list-items h3 a{color:#202121}
+.list-items h3 a:hover{color:rgb(39, 97, 126)}
+.list-items .box-item{position:relative;width:100%;transition:background 0.3s ease-in-out; font-family:'Heebo'; font-size: 20px;
+}
+
+
+
+/*property box newsnya*/
+.box-site-head{position:relative ;z-index:5}
+.box-site-head .box-photo{position:relative}
+.box-site-head .bt-default:hover{color:#49c5b6;border-color:#49c5b6}
+.box-site-head .box-content{position:absolute;top:0;left:0;width:100%;height:100%;color:#fcfcfc;z-index:2}
+.box-site-head .box-content .box-breadcrumb{position:fixed;top:20;left:100;right:0;width:100%;padding-left:inherit}
+.box-site-head .box-content .box-info{width:100%;text-align:center}
+.box-site-head .box-bg{position:relative;overflow:hidden}
+.box-site-head .box-bg a{position:relative;display:block;height:100%}
+.box-site-head .box-bg img{position:relative;float:left;width:100%;height:auto;transition:all 0.3s ease-in-out;z-index:1}
+.img-cover img{position:absolute;top:0;left:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
+
+/*circle center attribute*/
+.circle-note-progress.style-mobile circle{stroke:#00FCA3}
+.circle-note-progress .tooltip:hover .legend,.circle-note-progress .tooltip:hover .percent{color:#00FCA3}
+.circle-note-progress circle{fill:none;stroke:#fff;stroke-width:3}
+
+
+/*letak pop up circle nya*/
+.tooltip{position:relative;display:inline-block;z-index:1}
+.tooltip:hover>.box-tooltip,.bt-icon:hover .tooltip>.box-tooltip{visibility:visible;opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}
+.tooltip .box-tooltip{visibility:hidden;opacity:0;position:absolute;bottom:100%;left:50%;margin-bottom:8px;-webkit-transform:translateY(-10px);transform:translateY(-10px);transition:all 0.3s ease-in-out}
+.tooltip .tooltip-text{ font-family:'Heebo';position:relative;top:100px;left:-50%;width:auto;padding:8px 16px;background-color:#49c5b6;white-space:nowrap;color:#fff;font-size:25px;line-height:normal;text-align:center;border-radius:30px;z-index:970;}
+.tooltip .tooltip-text[data-color="dark"]:after{border-top-color:#202121}
+.tooltip .tooltip-text:after{content:'';position:absolute;top:100%;left:50%;height:0;width:0;margin-left:-6px;border:solid transparent;border-top-color:#49c5b6;border-width:8px 6px}
+
+
+.copyrightbox
+{position:fixed;
+bottom:0;
+right:0;
+left:0;
+max-width:100% auto;
+height:20px auto;
+font:15px Heebo;
+width:100%;
+padding-left: 12px;
+background-color:gray}
+
+#bodybox {
+  margin: auto;
+  position: fixed;
+  bottom: 7%;
+  right: 10%;
+  height:40px auto;
+  font: 15px arial, sans-serif;
+  background-color: #051c38;
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  box-shadow: 5px 5px 5px rgb(3, 0, 0);
+  border-radius: 15px;
+  z-index: 100;
+}
+
+#chatborder {
+  border-style: solid;
+  bottom: 0;
+  right: 0;
+  height:auto;
+  background-color: #5d719b;
+  border-width: 3px;
+  margin-top: 1px;
+  margin-bottom:1px;
+  margin-left: 1px;
+  margin-right:1px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  border-radius: 15px;
+  z-index: 100;
+}
+
+.chatlog {
+   font: 15px arial, sans-serif;
+   z-index: 100;
+}
+
+.chatbox {
+  font: 15px arial, sans-serif,600;
+  height: 20px;
+  width: 100%;
+  z-index: 100;
+}
+
+.collapsible {
+  position:sticky;
+  bottom:10%;
+  background-color: rgb(37, 83, 139);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-radius: 20px;
+  transition:all 0.3s ease-in-out;
+}
+
+.active, .collapsible:hover {
+  background-color: rgb(4, 34, 49);
+  transition:all 0.3s ease-in-out;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+ background-color: #0e0d22;
+ transition:all 0.3s ease-in-out;
+}
+
+
+/* unvisited link */
+a:link {
+  color: rgb(220, 226, 167);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(126, 133, 68);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(105, 194, 138);
+}
+
+/* selected link */
+a:active {
+  color: rgb(255, 255, 255);
+}
+
