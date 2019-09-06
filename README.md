@@ -1,4 +1,4 @@
-# gideon
+# Gideon
 
 This is the web2py app that will detect the reliability of a news.
 The score is given in between 0% to 100%, If the score is below 52.5%, we classify as a fake news otherwise not.
