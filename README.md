@@ -9,4 +9,4 @@ requirements:
 download or clone web2py,
 download chromedriver and set it to your path under db.py crawler function.
 
-After you have done the requirements, move this gideon file in web2py/applications/, then you can run it locally.
+After you have done the requirements, move this gideon file in web2py/applications/, then you can run it locally through web2py server.
