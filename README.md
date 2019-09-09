@@ -11,6 +11,7 @@ download or clone web2py,
 download chromedriver and set it to your path under db.py crawler function.
 
 For python library, please install the following packages as these are used:
+
 string, sklearn, numpy, pandas, google-search, beautifulsoup4, requests, html2text, readability-lxml, tqdm, urllib.request, selenium, PIL, wordcloud, matplotlib
 
 
