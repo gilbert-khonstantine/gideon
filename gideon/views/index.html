@@ -47,5 +47,42 @@
       {{block footer}} <!-- this is default footer -->
       <div class="copyrightbox">Copyright Gideon</div>
     </body>
+   
+    <br></br> 
+     <div id='bodybox'>
+       <button class="collapsible">Latest News</button>
+        <div class="content">
+        <div id='chatborder'>
+    <p id="chatlog7" class="chatlog">
+      {{news_list = news_update()}}
+      {{for news in news_list[:10]:}}
+        {{=(news.title.text)}}<br>
+        <a href="{{=news.link.text}}">Link to the News</a><br>
+        {{=(news.pubDate.text)}}<br>
+        {{=("-"*60)}}<br>
+      {{pass}}
+    </p>
+    <link rel="stylesheet" href="style.css">
+  </div>
+  </div>
+</div>
             
 </html>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+  
