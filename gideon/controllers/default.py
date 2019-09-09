@@ -3,19 +3,7 @@
 # This is a sample controller
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
-from googlesearch import search
-from bs4 import BeautifulSoup
-import gensim
-from nltk.tokenize import word_tokenize,sent_tokenize
-import requests
-import PyPDF2
-import html2text
-from readability.readability import Document
-from tqdm import tqdm
-import re
-import time
-import bleach
-# ---- example index page ----
+
 def welcome():
     print(request.vars)
     if request.vars['URL'] and request.vars['query']:
